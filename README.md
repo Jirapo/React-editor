@@ -76,3 +76,8 @@ npm run server
 - 样式使用postcss, 不支持less和sass。
 
 - ...
+
+## End
+
+请忽视文件中一大段一大段的残留代码注释……
+

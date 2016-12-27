@@ -19,9 +19,9 @@ npm run server
  单页repl, 含有小型console。用户在编辑器里输入代码, 可以编译运行es6和一小段react代码, 显示运行结果。 
  左侧框显示常规运行结果，右侧框显示react代码结果。
 
-<img src="./imgs/1.png" width="800"  />
+<img src="./imgs/1.jpeg" width="800"  />
 
-<img src="./imgs/5.png" width="800"  />
+<img src="./imgs/5.jpeg" width="800"  />
 
 #### 步骤
 

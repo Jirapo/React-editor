@@ -1,0 +1,12 @@
+.proj-footer-grp{
+  float: right;
+}
+.proj-footer-grp button{
+  margin-left: 10px;
+  height: 18px;
+  margin-top: 3px;
+  line-height: 12px;
+  border-radius: 3px;
+  border: 1px solid #717070;
+  background-color: #fff;
+}

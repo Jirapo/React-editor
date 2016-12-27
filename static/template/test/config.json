@@ -1,0 +1,6 @@
+{
+    "port": 3001,
+    "entry": "src/index.js",
+    "vendor": "src/vendor.js",
+    "output":"dist"
+}

@@ -1,8 +1,8 @@
 {
-  "name": "ele-demo2",
+  "name": "ele-demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "description": "an simple react IDE, made by electron",
+  "main": "./src/main/index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development electron ./src/main/index.js",
     "start-build": "cross-env NODE_ENV=production electron ./src/main/index.js",
@@ -14,7 +14,7 @@
     "watch-user": "webpack-dev-server --config user.webpack.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "jirapo",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.5.4",

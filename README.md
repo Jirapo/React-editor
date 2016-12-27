@@ -71,8 +71,8 @@ npm run server
 
 - 点击 'start', 'stop', 'build' 按钮，页面没有任何反馈。
 
-－ 很多错误判断还没有写。
+- 很多错误判断还没有写。
 
-－ 样式使用postcss, 不支持less和sass。
+- 样式使用postcss, 不支持less和sass。
 
-－ ...
+- ...

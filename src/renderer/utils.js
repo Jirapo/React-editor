@@ -1,7 +1,5 @@
 import { remote } from 'electron'
-// const transform = remote.require('babel-core').transform
 import { transform } from 'babel-standalone'
-// import path from 'path'
 const path = remote.require('path')
 
 
@@ -21,15 +19,8 @@ export const mapToMode = (ext) => {
 
 }
 
-
-// export const getFileName = (path, sep) => {
 export const getFileName = (dir) => {
 	return path.parse(dir).base
-  // if(sep){
-	//  return path.slice(path.lastIndexOf(sep) + sep.length);
-  // }else{
-  //   return path.slice(path.lastIndexOf('/') + 1);
-  // }
 }
 
 
@@ -115,20 +106,51 @@ export const formatFile = ({list, dirs, sep, folder}) => {
 
 }
 
+export const addFileID = (node, i) => {
+  let children = node.children
+  if(!children || children.length === 0){
+    return Object.assign({}, node, { id: i});
+  }
+  let child = children.map((n, j) => addFileID(n, i + '-' + j))
+  return Object.assign({}, node, { children: child, id: i  })
+}
+
+export const coverTree = (filter, node, matcher) => {
+  if(matcher(filter, node)){
+    return Object.assign({}, node, filter);
+  }
+  
+  if(!node.children) return node;
+  
+  const filtered = node.children.map(child => coverTree(filter, child, matcher))
+      
+  return Object.assign({}, node, { children: filtered });
+}
+
+export const delTree = (filter, node, matcher) => {
+  if(matcher(filter, node)){
+    return false
+  }
+  
+  if(!node.children) return true;
+  
+  const filtered = node.children.filter(child => delTree(filter, child, matcher))
+      
+  return Object.assign({}, node, { children: filtered });
+}
+
+
 export const transformCode = (contents) => {
+  
   try{
       const { code } = transform(contents.trim(), {
         presets: ['es2015', 'react', 'stage-0'],
         compact: true,
-        // shouldPrintComment: (cm) => {
-        //   console.log(cm)
-        // }
       });
 
       return { code }
 
   }catch(err){
-    // console.log(err)
 
     return { err: err.toString() }
   }

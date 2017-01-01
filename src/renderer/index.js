@@ -1,4 +1,3 @@
-// import 'babel-polyfill'
 import dva from 'dva';
 import RouterConfig from './router';
 import files from './models/files'

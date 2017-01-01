@@ -37,12 +37,6 @@ export default {
     changeStatus(state, action){
       return { ...state, ...action.payload};
     },
-    // changeTheme(state, action){
-    //   return { ...state, ...action.payload};
-    // },
-    // changeMode(state, action){
-    //   return { ...state, ...action.payload};
-    // },
 
   },
 

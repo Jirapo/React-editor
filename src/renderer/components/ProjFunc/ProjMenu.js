@@ -45,4 +45,3 @@ ProjMenu.propTypes = {};
 
 export default connect(({ cns, files, proj }) => ({  cns, files, proj }))(ProjMenu);
 
-// <input type="checkbox" onChange={e => showRun(e.target.checked)} />

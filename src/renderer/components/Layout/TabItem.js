@@ -10,7 +10,7 @@ const TabItem = ({ index, className, title, onSelectItem, onCloseItem  }) => {
         e.stopPropagation();
         onSelectItem(index)
       }}
-    >
+      >
       <span
         className={styles['ic-close-tab']}
         onClick={ e => {e.stopPropagation(); onCloseItem(index)}}>x</span>

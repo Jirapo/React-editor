@@ -1,7 +1,9 @@
 {
   "presets": [
+
     ["es2015", {"modules": false}],
-    //"es2015",
+    //"es2015-webpack",
+    
     // webpack understands the native import syntax, and uses it for tree shaking
 
     "stage-2",
@@ -14,7 +16,7 @@
   ],
   "plugins": [
     "react-hot-loader/babel"
-    //"add-module-exports"
+    
     // Enables React code to work with HMR.
   ]
 }

@@ -6,7 +6,6 @@ import styles from './Console.css'
 
 class Console extends Component {
 
-// const Console = ({ cns, dispatch}) => {
 	constructor(props){
     super(props);
     this.transCode = this.transCode.bind(this)
@@ -21,7 +20,6 @@ class Console extends Component {
 		dispatch({
 			type: 'cns/transCode',
 			payload: { 
-				// mount: findDOMNode(this.refs.result), 
 				contents: tab.contents 
 			},
       });
@@ -58,7 +56,7 @@ class Console extends Component {
 
 		return( 
 			<div className={styles.console}>
-				<div className={styles.btnGrp}>
+				<div className={styles['btn-grp']}>
 					<button className={styles.btn} onClick={ e => this.transCode()}>BABEL</button>
 					<button className={styles.btn} onClick={ e => this.execCode()}>EXEC</button>
 					<button className={styles.btn} onClick={ e => this.clearConsole()}>CLEAR</button>
@@ -74,4 +72,3 @@ Console.propTypes = {};
 
 export default connect(({ cns, files, proj }) => ({ cns, files, proj }))(Console);
 
-// <div className={styles.result} ref='result'>{ cnt }</div>

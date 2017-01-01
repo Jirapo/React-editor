@@ -98,5 +98,4 @@ class IndexPage extends Component {
 
 export default connect(({ editor, files, cns }) => ({ editor, files, cns }))(IndexPage);
 
-// <Pane ><EditorPane {...editorPaneProps} /></Pane>
-// */
+

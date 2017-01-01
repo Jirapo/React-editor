@@ -15,8 +15,9 @@ require('react-treebeard');
 require('electron');
 require('lodash');
 require('path');
+// require('node-watch')
 
-require('brace/mode/php');
+
 require('brace/mode/jsx');
 require('brace/mode/javascript');
 require('brace/mode/java');
@@ -25,12 +26,9 @@ require('brace/mode/xml');
 require('brace/mode/ruby');
 require('brace/mode/sass');
 require('brace/mode/markdown');
-require('brace/mode/mysql');
 require('brace/mode/json');
 require('brace/mode/html');
 require('brace/mode/handlebars');
-require('brace/mode/golang');
-require('brace/mode/csharp');
 require('brace/mode/coffee');
 require('brace/mode/css');
 require('brace/theme/monokai');

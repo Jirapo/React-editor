@@ -9,7 +9,6 @@ class TabGroup extends Component {
     super(props);
   }
 
-
   render(){
     const { tabComponents, activeIndex, onSelectItem, onCloseItem } = this.props;
     const tabItems = tabComponents.map((it, i) =>
@@ -41,7 +40,6 @@ class TabGroup extends Component {
     )
   }
 }
-// const TabGroup = (props) => <div className={styles.tabgrp}>{props.children}</div>
 
 TabGroup.propTypes = {};
 

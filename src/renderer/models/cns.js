@@ -1,8 +1,8 @@
-import { transformCode } from '../utils'
 import React, { Component } from 'react';
 import ReactDOM, {findDOMNode} from 'react-dom'
 import _ from 'lodash'
 import CaptureConsole from '../services/cns'
+import { transformCode } from '../utils'
 
 
 export default {

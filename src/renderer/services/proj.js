@@ -27,63 +27,6 @@ export const execCode = (opt, cmd) => {
   })
 }
 
-export const editWbpkFile = (folder, fromDir, toDir) => {
-   console.log(folder, fromDir, toDir);
-  // const APP_PATH = process.cwd();
-  //
-  // return readFile(resolvePath(APP_PATH , fromDir))
-  // .then(wbpk => {
-  //   let config = readFile(resolvePath(folder, 'config.json'))
-  //   return {wbpk, config}
-  // })
-  // .then(({config, wbpk}) => {
-  //   console.log(config)
-  //   let baseConfig = JSON.parse(config)
-  //   let newFoler = folder.replace(/\\/g, '/')
-  //
-  //   let user_path_entry = resolvePath(newFoler, baseConfig.entry).replace(/\\/g, '/')
-  //   let user_path_vendor = resolvePath(newFoler, baseConfig.vendor).replace(/\\/g, '/')
-  //   let user_path_output = resolvePath(newFoler, baseConfig.output).replace(/\\/g, '/')
-  //
-  //   wbpk = wbpk.replace(/user_path_entry/g, `'${user_path_entry}'`);
-  //   wbpk = wbpk.replace(/user_path_vendor/g, `'${user_path_vendor}'`);
-  //   wbpk = wbpk.replace(/user_path_output/g, `'${user_path_output}'`);
-  //   // let newWpPath = resolvePath(APP_PATH, 'user.webpack.config.js');
-  //   // return resolvePath(APP_PATH, 'user.webpack.config.js');
-  //   return {newWpPath, wbpk}
-  // })
-  // .then(({newWpPath, wbpk}) => remote.require('fs').writeFile(newWpPath, wbpk, 'utf-8'))
-
-}
-
-// export const *editWbpkFile (folder, fromDir, toDir){
-// function* editWbpkFile (folder, fromDir, toDir){
-//   console.log(folder, fromDir, toDir);
-//   const APP_PATH = process.cwd();
-//   // let wbpk = yield call(readFile, resolvePath(APP_PATH, 'webpack/base.config.js'));
-//   // let wbpk = yield readFile(resolvePath(APP_PATH, fromDir);
-//   // let config = yield call(readFile, resolvePath(folder, 'config.json'));
-//   let wbpk = yield readFile(resolvePath(APP_PATH , fromDir),
-//     config = yield readFile(resolvePath(folder, 'config.json'),
-//     baseConfig = JSON.parse(config),
-//   newFoler = folder.replace(/\\/g, '/'),
-//
-//   user_path_entry = resolvePath(newFoler, baseConfig.entry).replace(/\\/g, '/'),
-//   user_path_vendor = resolvePath(newFoler, baseConfig.vendor).replace(/\\/g, '/'),
-//   user_path_output = resolvePath(newFoler, baseConfig.output).replace(/\\/g, '/'),
-//
-//   wbpk = wbpk.replace(/user_path_entry/g, `'${user_path_entry}'`),
-//   wbpk = wbpk.replace(/user_path_vendor/g, `'${user_path_vendor}'`),
-//   wbpk = wbpk.replace(/user_path_output/g, `'${user_path_output}'`),
-//
-//   newWpPath = resolvePath(APP_PATH, toDir),
-//   remote.require('fs').writeFile(newWpPath, wbpk, 'utf-8'),
-//
-//   // return baseConfig
-// }
-//
-// export editWbpkFile;
-
 
 export const spwanCodeByPort = ( port ) => {
 
@@ -111,9 +54,6 @@ export const spwanCodeByPort = ( port ) => {
 
 	  grep.stdout.on('data', (data) => {
 	  	resolve(data.toString())
-	    // console.log(`${data}`);
-	    // console.log(data.toString().split(' '));
-	    // xa.stdin.write(data);
 	  });
 
 	  grep.stderr.on('data', (data) => {

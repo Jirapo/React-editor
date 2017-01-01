@@ -22,11 +22,17 @@ class FileTree extends Component {
     }
 
     node.active = true;
-
+    
     if(node.children){
       node.toggled = toggled;
+      dispatch({
+        type: 'files/toggledTree',
+        payload: {
+          node,
+        }
+      });
     }else{
-      // console.log(node)
+      
       dispatch({
         type: 'files/openFile',
         payload: {

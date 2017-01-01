@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'dva'
-import { EDITOR_THEMES, EDITOR_MODE } from '../../../shared/constants'
+import { EDITOR_THEMES, EDITOR_MODE } from '../../constants'
 import styles from './EditorSelectPane.css';
 
-const EditorSelectPane = ({ editor:{ mode, theme} }) => {
+const EditorSelectPane = ({ editor:{ mode, theme}, dispatch }) => {
 
   function changeThemeHandler(theme) {
     dispatch({
@@ -19,51 +19,6 @@ const EditorSelectPane = ({ editor:{ mode, theme} }) => {
     });
   }
 
-  // function showConsole(show){
-  //
-  //     dispatch({
-  //       type: 'cns/changeStatus',
-  //       payload: { show },
-  //     });
-  //
-  // }
-
-  // function newWindow(){
-  //   if(!win.instance){
-  //     dispatch({
-  //       type: 'win/newWindow',
-  //       // payload: { show },
-  //     });
-  //   }else{
-  //     dispatch({
-  //       type: 'win/closeWindow',
-  //       // payload: { instance: null },
-  //     });
-  //   }
-  // }
-  //
-  // function startProj(){
-  //   // if(proj.start){
-  //
-  //   // }else{
-  //     dispatch({
-  //       type: 'proj/startProj',
-  //       // payload: { show },
-  //     });
-  //   // }
-  // }
-  //
-  // function stopProj(){
-  //   dispatch({
-  //     type: 'proj/stopProj',
-  //   });
-  // }
-  //
-  // function buildProj(){
-  //   dispatch({
-  //     type: 'proj/buildProj',
-  //   });
-  // }
 
   return (
     <div className={styles['select-grp']}>
@@ -85,8 +40,3 @@ EditorSelectPane.propTypes = {};
 
 export default connect(({ editor }) => ({ editor }))(EditorSelectPane);
 
-// <input type="checkbox" onChange={e => showRun(e.target.checked)} />
-// <button onClick={e => startProj()} >Start</button>
-// <button onClick={e => stopProj()} >Stop</button>
-// <button onClick={e => buildProj()} >Build</button>
-// <button onClick={e => showConsole(!cns.show)} >{cns.show ? 'Hide' : 'Show'} Console</button>

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { connect } from 'dva'
 
 import styles from './Layout.css'
 
@@ -9,4 +8,3 @@ Sidebar.propTypes = {};
 
 export default Sidebar
 
-// export default connect()(Sidebar);

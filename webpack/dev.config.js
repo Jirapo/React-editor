@@ -8,7 +8,6 @@ const webpackCommon = require('./common.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// console.log(path.resolve(__dirname))
 module.exports = webpackMerge(webpackCommon, {
 
   devtool: 'inline-source-map',

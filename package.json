@@ -8,8 +8,8 @@
     "start-build": "cross-env NODE_ENV=production electron ./src/main/index.js",
     "server": "node server.js --port 3000 ",
     "server-user": "node server.js --port 3001",
-    "build": "./node_modules/.bin/webpack --config webpack/prod.config.js --display-error-details --color",
-    "build-user": "./node_modules/.bin/webpack --config user.webpack.config.prod.js  --display-error-details --color",
+    "build": "webpack --config webpack/prod.config.js --display-error-details --color",
+    "build-user": "webpack --config user.webpack.config.prod.js  --display-error-details --color",
     "watch": "webpack-dev-server --config webpack/dev.config.js --watch",
     "watch-user": "webpack-dev-server --config user.webpack.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -58,5 +58,21 @@
     "webpack-dev-server": "^2.2.0-rc.0",
     "webpack-hot-middleware": "^2.14.0",
     "webpack-merge": "^1.1.2"
-  }
+  },
+  "dependencies": {
+    "chokidar": "^1.6.1",
+    "electron": "^1.4.13",
+    "kill-by-port": "^0.0.1",
+    "kp": "^1.1.0",
+    "node-watch": "^0.4.1",
+    "webpack": "^2.2.0-rc.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jirapo/React-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jirapo/React-editor/issues"
+  },
+  "homepage": "https://github.com/Jirapo/React-editor#readme"
 }

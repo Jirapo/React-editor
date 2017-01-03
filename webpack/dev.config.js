@@ -97,6 +97,9 @@ module.exports = webpackMerge(webpackCommon, {
       aggregateTimeout: 300,
       poll: 1000
     },
+  },
+  performance: {
+    hints: false
   }
 
 });

@@ -1,11 +1,15 @@
-import { remote } from 'electron'
-import { mapToMode, getFileName, formatFile, resolvePath } from '../utils'
-import { saveNewFile, readFile} from '../services/file'
-import { execCode, editWbpkFile } from '../services/proj'
+import { remote, ipcRenderer } from 'electron'
 import del from 'del'
+import fs from 'fs'
+import { exec } from 'child_process'
 
+import { mapToMode, getFileName, formatFile, resolvePath } from '../utils'
+import { execCode, editWbpkFile } from '../services/proj'
+import { saveNewFile, readFile} from '../services/file'
+
+// const fs = remote.require('fs')
 const APP_PATH = process.cwd()
-const exec = remote.require('child_process').exec;
+// const exec = remote.require('child_process').exec;
 
 export default {
 
@@ -26,11 +30,21 @@ export default {
     user_path_output: '',
   },
 
+  subscriptions: {
+    setup({ dispatch }) {
+      ipcRenderer
+        .on('winOpenFolder', (event, data) => {
+          
+        })
+        
+
+    },
+  },
+
   effects: {
+    
     *startProj({ }, {put, call, select }){
       const { folder} = yield select(state => state.files);
-
-      // const baseConfig = yield call(editWbpkFile, folder, 'webpack/base.config.js', 'user.webpack.config.js')
 
       let wbpk = yield call(readFile, resolvePath(APP_PATH, 'webpack/base.config.js'));
       let config = yield call(readFile, resolvePath(folder, 'config.json'));
@@ -47,7 +61,8 @@ export default {
       wbpk = wbpk.replace(/user_path_output/g, `'${user_path_output}'`);
 
       let newWpPath = resolvePath(APP_PATH, 'user.webpack.config.js');
-      remote.require('fs').writeFile(newWpPath, wbpk, 'utf-8');
+      // remote.require('fs').writeFile(newWpPath, wbpk, 'utf-8');
+      fs.writeFile(newWpPath, wbpk, 'utf-8');
 
       yield put({
         type: 'changeStatus',
@@ -128,7 +143,7 @@ export default {
       wbpk = wbpk.replace(/user_path_output/g, `'${c}'`);
 
       let newWpPath = resolvePath(APP_PATH, 'user.webpack.config.prod.js');
-      remote.require('fs').writeFile(newWpPath, wbpk, 'utf-8');
+      fs.writeFile(newWpPath, wbpk, 'utf-8');
 
       yield del.sync([c + '/**'], {
         force: true

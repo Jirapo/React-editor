@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom'
+import fs from 'fs'
 import { remote, ipcRenderer } from 'electron'
 import { mapToMode, getFileName, formatFile, resolvePath, addFileID, coverTree } from '../utils'
 import { saveNewFile, readFile} from '../services/file'
 import { filterTree, expandFilteredNodes} from '../services/filter'
-const dir = remote.require('node-dir')
-
+// const fs = remote.require('fs')
 
 const baseTab = () => ({
   title: 'undefined',
@@ -56,15 +56,9 @@ export default {
           });
         })
         .on('winOpenFolder', (event, data) => {
-          // const treeList = formatFile(data);
           const formatData = formatFile(data);
-          const treeList = addFileID(formatData, 0)
+          const treeList = addFileID(formatData, 0);
           originTree = treeList;
-          console.log(treeList)
-
-          // Promise.all([System.import('chokidar'), System.import('node-dir')])
-          
-
 
           dispatch({
             type: 'changeStatus',
@@ -74,6 +68,7 @@ export default {
               treeList
             }
           });
+
         })
         .on('winSaveFile', function () {
             dispatch({
@@ -132,7 +127,8 @@ export default {
 
       if(tab.path != '/'){
 
-        remote.require('fs').writeFile(tab.path, tab.contents, 'utf-8');
+        // remote.require('fs').writeFile(tab.path, tab.contents, 'utf-8');
+        fs.writeFile(tab.path, tab.contents, 'utf-8');
 
       }else{
 
@@ -197,9 +193,7 @@ export default {
     },
 
     *toggledTree({ payload: { node } }, {put, call, select }){
-        // console.log(node)
         coverTree(node, originTree, (node, newNode) => node.id == newNode.id )
-        console.log(originTree)
     }
 
   },

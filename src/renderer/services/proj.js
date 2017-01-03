@@ -1,8 +1,9 @@
 import { remote } from 'electron'
-const exec = remote.require('child_process').exec;
-const spawn = remote.require('child_process').spawn;
+// const exec = remote.require('child_process').exec;
+// const spawn = remote.require('child_process').spawn;
 import { saveNewFile, readFile} from './file'
 import { resolvePath } from '../utils'
+import {exec, spawn} from 'child_process'
 
 export const execCode = (opt, cmd) => {
   const options = {

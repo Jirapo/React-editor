@@ -46,40 +46,39 @@ const openFolder = (focusWindow) => {
 
       
 
-      var watcher = chokidar.watch(fileNames[0], {
-        // ignored: /[\/\\]\./,
-        persistent: true
-      });
+      // var watcher = chokidar.watch(fileNames[0], {
+      //   // ignored: /[\/\\]\./,
+      //   persistent: true
+      // });
 
-      watcher
-        .on('add', path => {
-          // console.log(path)
-          reading(fileNames[0])
-        })
-        .on('unlink', path => {
-          // console.log(path)
-          reading(fileNames[0])
-        })
+      // watcher
+      //   .on('add', path => {
+      //     // console.log(path)
+      //     reading(fileNames[0])
+      //   })
+      //   .on('unlink', path => {
+      //     // console.log(path)
+      //     reading(fileNames[0])
+      //   })
 
 
-        function reading(filepath){
-          dir.paths(filepath, 
+          dir.paths(fileNames[0], 
             function(err, paths) {
               if (err) throw err;
               console.log('files:\n',paths.files);
               console.log('subdirs:\n', paths.dirs);
+              const files = paths.files.filter(p => path.basename(p) != '.DS_Store')
               
               return focusWindow
                 .webContents
                 .send(
                   'winOpenFolder' , {
                     sep: path.sep,
-                    list: paths.files,
+                    list: files,
                     dirs: paths.dirs,
-                    folder: filepath,
+                    folder: fileNames[0],
                   });
           });
-        }
 
     }
   });
